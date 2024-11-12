@@ -1,32 +1,38 @@
-import { useDispatch, useSelector } from "react-redux";
-import { tableSlice } from "../redux/reducer";
-import { getSearch } from "../redux/selector";
+type SearchBarType = {
+  searchBarValue: string;
+  setSearchBarValue: (value: string) => void;
+};
 
-export default function SearchBar() {
-  const dispatch = useDispatch();
-  const searchInputValue = useSelector(getSearch);
-
+export default function SearchBar({
+  searchBarValue,
+  setSearchBarValue,
+}: SearchBarType) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
+
     const value = e.target.value.trimStart();
 
-    dispatch(tableSlice.actions.search(value));
+    console.log(value);
+
+    setSearchBarValue(value);
   };
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
-      <label htmlFor="search">Search: </label>
-      <input
-        type="text"
-        id="search"
-        name="search"
-        value={searchInputValue}
-        onChange={(e) => handleInputChange(e)}
-      />
+      <label htmlFor="search">
+        Search:{" "}
+        <input
+          type="text"
+          id="search"
+          name="search"
+          value={searchBarValue}
+          onChange={(e) => handleInputChange(e)}
+        />
+      </label>
     </form>
   );
 }

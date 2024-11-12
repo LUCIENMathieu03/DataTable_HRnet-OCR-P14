@@ -1,13 +1,12 @@
-import { useDispatch } from "react-redux";
-import { tableSlice } from "../redux/reducer";
+type EntriesType = {
+  setEntriesValue: (value: string) => void;
+};
 
-export default function Entries() {
-  const dispatch = useDispatch();
-
+export default function Entries({ setEntriesValue }: EntriesType) {
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     console.log(value);
-    dispatch(tableSlice.actions.setSelectOption(value));
+    setEntriesValue(value);
   };
 
   return (

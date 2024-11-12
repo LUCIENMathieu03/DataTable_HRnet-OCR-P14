@@ -1,0 +1,62 @@
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  position: absolute;
+
+  &_titles {
+    & th {
+      padding: 10px 18px;
+    }
+
+    & th > span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & .arrow {
+        margin-left: 5px;
+
+        &-selected {
+          color: blue;
+        }
+        & .up,
+        & .down {
+          cursor: pointer;
+          margin: 3px;
+        }
+      }
+    }
+    //L'assombrissement est que sur sur les data
+    // & .selectedCol {
+    //   background: darken($color: #f9f9f9, $amount: 05);
+    // }
+  }
+
+  &_data {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+    & tr:nth-child(odd) {
+      background: #f9f9f9;
+    }
+    & tr:not(:last-child) {
+      border-bottom: 1px solid lightgrey;
+    }
+
+    & td {
+      padding: 8px 10px;
+    }
+
+    & .selectedCol {
+      background: darken($color: #f9f9f9, $amount: 3);
+    }
+
+    // & .selectedCol:nth-child(odd) {
+    //   background: darken(#f9f9f9, 3%);
+    // }
+
+    // & td.selectedCol:nth-child(even) {
+    //   background: darken(white, 3%);
+    // }
+  }
+}
