@@ -26,10 +26,6 @@
         }
       }
     }
-    //L'assombrissement est que sur sur les data
-    // & .selectedCol {
-    //   background: darken($color: #f9f9f9, $amount: 05);
-    // }
   }
 
   &_data {
@@ -47,16 +43,12 @@
       padding: 8px 10px;
     }
 
-    & .selectedCol {
-      background: darken($color: #f9f9f9, $amount: 3);
+    & tr:nth-child(odd) .selectedCol {
+      background-color: darken($color: #f9f9f9, $amount: 8);
     }
 
-    // & .selectedCol:nth-child(odd) {
-    //   background: darken(#f9f9f9, 3%);
-    // }
-
-    // & td.selectedCol:nth-child(even) {
-    //   background: darken(white, 3%);
-    // }
+    & tr:nth-child(even) .selectedCol {
+      background-color: darken($color: white, $amount: 3);
+    }
   }
 }

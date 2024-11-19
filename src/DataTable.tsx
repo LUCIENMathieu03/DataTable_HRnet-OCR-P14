@@ -13,12 +13,9 @@ function DataTable() {
     <div>
       <div className="headerTable">
         <Entries setEntriesValue={setEntriesValue} />
-        <SearchBar
-          searchBarValue={searchBarValue}
-          setSearchBarValue={setSearchBarValue}
-        />
+        <SearchBar searchBarValue={searchBarValue} setSearchBarValue={setSearchBarValue} />
       </div>
-      <Table tableData={employees} />
+      <Table tableData={employees} entriesValue={entriesValue} searchBarValue={searchBarValue} />
     </div>
   );
 }
