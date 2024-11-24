@@ -3,10 +3,7 @@ type SearchBarType = {
   setSearchBarValue: (value: string) => void;
 };
 
-export default function SearchBar({
-  searchBarValue,
-  setSearchBarValue,
-}: SearchBarType) {
+export default function SearchBar({ searchBarValue, setSearchBarValue }: SearchBarType) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   };
@@ -16,7 +13,7 @@ export default function SearchBar({
 
     const value = e.target.value.trimStart();
 
-    console.log(value);
+    console.log({ "searchbar value": value });
 
     setSearchBarValue(value);
   };
@@ -25,13 +22,7 @@ export default function SearchBar({
     <form onSubmit={(e) => handleSubmit(e)}>
       <label htmlFor="search">
         Search:{" "}
-        <input
-          type="text"
-          id="search"
-          name="search"
-          value={searchBarValue}
-          onChange={(e) => handleInputChange(e)}
-        />
+        <input type="text" id="search" name="search" value={searchBarValue} onChange={(e) => handleInputChange(e)} />
       </label>
     </form>
   );

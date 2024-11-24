@@ -1,12 +1,12 @@
 type EntriesType = {
-  setEntriesValue: (value: string) => void;
+  setEntriesValue: (value: number) => void;
 };
 
 export default function Entries({ setEntriesValue }: EntriesType) {
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
     console.log(value);
-    setEntriesValue(value);
+    setEntriesValue(parseInt(value));
   };
 
   return (

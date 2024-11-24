@@ -1,6 +1,13 @@
-.headerTable {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-  margin-bottom: 10px;
+.theTable {
+  overflow: scroll;
+
+  &_header {
+    position: sticky;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+  }
 }

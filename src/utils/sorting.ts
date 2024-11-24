@@ -1,16 +1,3 @@
-// type DataTableType = {
-//   city: string;
-//   dateOfBirth: string;
-//   department: string;
-//   firstName: string;
-//   lastName: string;
-//   startDate: string;
-//   state: string;
-//   street: string;
-//   zipCode: string;
-// }[];
-// type TableKeyType = "firstName" | "lastName" | "startDate" | "state" | "street" | "zipCode" | "dateOfBirth" | "city";
-
 type DataTableType = {
   [key: string]: string;
 }[];
@@ -42,6 +29,17 @@ export const descending = (dataTable: DataTableType, tableKey: string) => {
     if (a[tableKey] > b[tableKey]) return -1;
     if (a[tableKey] < b[tableKey]) return 1;
     return 0;
+  });
+
+  return sortedTable;
+};
+
+export const searchInDataTable = (dataTable: DataTableType, searchString: string) => {
+  const lowerCaseSearchString = searchString.toLocaleLowerCase();
+  const sortedTable = [...dataTable].filter((item) => {
+    return Object.values(item).some((value) => {
+      return value.toLocaleLowerCase().includes(lowerCaseSearchString);
+    });
   });
 
   return sortedTable;
