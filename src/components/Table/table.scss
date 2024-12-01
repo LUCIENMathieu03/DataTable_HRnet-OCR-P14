@@ -1,11 +1,11 @@
 .dataTable {
-  width: 100%;
   border-collapse: collapse;
-  position: relative;
+  width: 100%;
 
   &_titles {
     & th {
       padding: 10px 18px;
+      box-sizing: content-box;
     }
 
     & th > span {
@@ -41,6 +41,7 @@
 
     & td {
       padding: 8px 10px;
+      box-sizing: content-box;
     }
 
     & tr:nth-child(odd) .selectedCol {
@@ -58,8 +59,6 @@
 }
 
 .pagination {
-  position: sticky;
-  left: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,26 +91,28 @@
   }
 }
 
-@media (max-width: 768px) {
-  .pagination {
-    &_button button,
-    &_button .paginationSelect {
-      padding: 0.3em 0.5em;
-      margin-left: 0.3em;
-    }
+// Mobile
+// @media (max-width: 768px) {
+//   .pagination {
+//     position: sticky;
+//     &_button button,
+//     &_button .paginationSelect {
+//       padding: 0.3em 0.5em;
+//       margin-left: 0.3em;
+//     }
 
-    &_button {
-      .paginationSelect {
-        background: linear-gradient(to bottom, white 30%, rgb(231, 229, 229) 80%);
-        border: 1px solid lightgrey;
-        border-radius: 2px;
-      }
-      .controlButton_text {
-        display: none;
-      }
-      .controlButton_arrow {
-        display: block;
-      }
-    }
-  }
-}
+//     &_button {
+//       .paginationSelect {
+//         background: linear-gradient(to bottom, white 30%, rgb(231, 229, 229) 80%);
+//         border: 1px solid lightgrey;
+//         border-radius: 2px;
+//       }
+//       .controlButton_text {
+//         display: none;
+//       }
+//       .controlButton_arrow {
+//         display: block;
+//       }
+//     }
+//   }
+// }

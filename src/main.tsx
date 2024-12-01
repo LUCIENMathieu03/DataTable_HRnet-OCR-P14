@@ -6,6 +6,8 @@ import employeesX2 from "./data/employeesX2.json";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <DataTable dataTable={employeesX2} />
+    <div className="mainDiv">
+      <DataTable dataTable={employeesX2} />
+    </div>
   </StrictMode>
 );
