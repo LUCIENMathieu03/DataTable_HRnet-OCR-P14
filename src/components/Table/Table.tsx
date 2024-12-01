@@ -23,7 +23,6 @@ export default function Table({ tableData, entriesValue, searchBarValue }: DataT
   const [selected, setSelected] = useState<SelectedStateType>({});
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(Math.ceil(employeesTable.length / entriesValue));
-  const [isMobileView, setIsMobileView] = useState(window.innerWidth > 768);
 
   useEffect(() => {
     const newTableToUse =
@@ -44,15 +43,6 @@ export default function Table({ tableData, entriesValue, searchBarValue }: DataT
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entriesValue, tableToUse]);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobileView(window.innerWidth > 768);
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   //Return a table based on the entries number and the pagination
   const employeeDisplayed = (table: DataTableType) => {
@@ -144,62 +134,42 @@ export default function Table({ tableData, entriesValue, searchBarValue }: DataT
           {(currentPage - 1) * entriesValue + employeeDisplayed(tableToUse).length} of {tableToUse.length} entries{" "}
         </div>
         <div className="pagination_button">
-          <button
-            key="previousButton"
-            onClick={() => setCurrentPage(currentPage === 1 ? 1 : currentPage - 1)}
-            className={`active`}
-          >
+          <button key="previousButton" onClick={() => setCurrentPage(currentPage === 1 ? 1 : currentPage - 1)}>
             <span className="controlButton_arrow">{`<`}</span> <span className="controlButton_text">Previous</span>
           </button>
 
-          {isMobileView ? (
-            paginationButtons().map((page, index) => {
-              if (page === "...") {
-                return (
-                  <select
-                    value={currentPage}
-                    key={index}
-                    onChange={(e) => setCurrentPage(parseInt(e.target.value))}
-                    className={`paginationSelect ${currentPage > 2 && currentPage < totalPages - 1 ? "active" : ""}`}
-                  >
-                    {Array.from({ length: totalPages }, (_, idx) => (
-                      <option key={idx + 1} value={idx + 1}>
-                        Page {idx + 1}
-                      </option>
-                    ))}
-                  </select>
-                );
-              } else {
-                return (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentPage(parseInt(`${page}`))}
-                    className={`paginationNumber ${currentPage === page ? "active" : ""}`}
-                  >
-                    {page}
-                  </button>
-                );
-              }
-            })
-          ) : (
-            <select
-              value={currentPage}
-              key="mobileSelect"
-              onChange={(e) => setCurrentPage(parseInt(e.target.value))}
-              className={`paginationSelect ${currentPage > 2 && currentPage < totalPages - 2 ? "active" : ""}`}
-            >
-              {Array.from({ length: totalPages }, (_, idx) => (
-                <option key={idx + 1} value={idx + 1}>
-                  Page {idx + 1}
-                </option>
-              ))}
-            </select>
-          )}
+          {paginationButtons().map((page, index) => {
+            if (page === "...") {
+              return (
+                <select
+                  value={currentPage}
+                  key={index}
+                  onChange={(e) => setCurrentPage(parseInt(e.target.value))}
+                  className={`paginationSelect ${currentPage > 2 && currentPage < totalPages - 1 ? "active" : ""}`}
+                >
+                  {Array.from({ length: totalPages }, (_, idx) => (
+                    <option key={idx + 1} value={idx + 1}>
+                      Page {idx + 1}
+                    </option>
+                  ))}
+                </select>
+              );
+            } else {
+              return (
+                <button
+                  key={index}
+                  onClick={() => setCurrentPage(parseInt(`${page}`))}
+                  className={`paginationNumber ${currentPage === page ? "active" : ""}`}
+                >
+                  {page}
+                </button>
+              );
+            }
+          })}
 
           <button
             key="nextButton"
             onClick={() => setCurrentPage(currentPage === totalPages ? totalPages : currentPage + 1)}
-            className={`active`}
           >
             <span className="controlButton_text">Next</span> <span className="controlButton_arrow"> {`>`}</span>
           </button>

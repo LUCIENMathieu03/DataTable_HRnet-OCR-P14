@@ -1,4 +1,5 @@
 import "./dataTable.scss";
+import "./base.scss";
 import { useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Entries from "./components/Entries";
@@ -7,6 +8,7 @@ import Table from "./components/Table/Table";
 type TableType = {
   [key: string]: string;
 }[];
+
 type DataTableType = {
   dataTable: TableType;
 };

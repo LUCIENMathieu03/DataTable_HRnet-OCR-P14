@@ -1,9 +1,9 @@
 .theTable {
-  overflow: scroll;
+  // min-width: -webkit-fill-available;
+  // position: absolute;
+  width: 100%;
 
   &_header {
-    position: sticky;
-    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,3 +11,14 @@
     margin-bottom: 10px;
   }
 }
+
+// Mobile
+// @media (max-width: 768px) {
+//   .theTable {
+//     overflow: scroll;
+//     &_header {
+//       position: sticky;
+//       left: 0;
+//     }
+//   }
+// }
