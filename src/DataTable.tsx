@@ -8,8 +8,7 @@ import Table from "./components/Table/Table";
 type TableType = {
   [key: string]: string;
 }[];
-
-type DataTableType = {
+export type DataTableType = {
   dataTable: TableType;
 };
 
@@ -18,13 +17,19 @@ function DataTable({ dataTable }: DataTableType) {
   const [entriesValue, setEntriesValue] = useState(10);
 
   return (
-    <div className="theTable">
-      <div className="theTable_header">
-        <Entries setEntriesValue={setEntriesValue} />
-        <SearchBar searchBarValue={searchBarValue} setSearchBarValue={setSearchBarValue} />
-      </div>
-      <Table tableData={dataTable} entriesValue={entriesValue} searchBarValue={searchBarValue} />
-    </div>
+    <>
+      {dataTable.length === 0 ? (
+        <div className="noData">There is no data to show</div>
+      ) : (
+        <div className="theTable">
+          <div className="theTable_header">
+            <Entries setEntriesValue={setEntriesValue} />
+            <SearchBar searchBarValue={searchBarValue} setSearchBarValue={setSearchBarValue} />
+          </div>
+          <Table tableData={dataTable} entriesValue={entriesValue} searchBarValue={searchBarValue} />
+        </div>
+      )}
+    </>
   );
 }
 

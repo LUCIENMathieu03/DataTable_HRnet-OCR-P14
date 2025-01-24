@@ -1,6 +1,10 @@
+.noData {
+  width: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+
 .theTable {
-  // min-width: -webkit-fill-available;
-  // position: absolute;
   width: 100%;
 
   &_header {
@@ -13,12 +17,15 @@
 }
 
 // Mobile
-// @media (max-width: 768px) {
-//   .theTable {
-//     overflow: scroll;
-//     &_header {
-//       position: sticky;
-//       left: 0;
-//     }
-//   }
-// }
+@media (max-width: 768px) {
+  .theTable {
+    font-size: small;
+    overflow: scroll;
+
+    &_header,
+    &_footer {
+      position: sticky;
+      left: 0;
+    }
+  }
+}

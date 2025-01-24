@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import DataTable from "./DataTable.tsx";
+import DataTable from "./DataTable";
 // import employees from "./data/employees.json";
 import employeesX2 from "./data/employeesX2.json";
 
