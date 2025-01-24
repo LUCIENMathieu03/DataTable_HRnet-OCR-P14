@@ -1,9 +1,20 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import dts from "vite-plugin-dts";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true, // Ajoute un fichier d'entrée `index.d.ts` pour les types
+      outDir: "dist", // Répertoire de sortie pour les types
+      rollupTypes: false, // Désactive la génération de types par Rollup
+      compilerOptions: {
+        declarationMap: false, // Ne pas générer de cartes de déclaration
+      },
+    }),
+  ],
   css: {
     preprocessorOptions: {
       scss: {

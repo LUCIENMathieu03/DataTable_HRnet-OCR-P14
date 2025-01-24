@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "declaration": true, // Génère les fichiers de déclaration (.d.ts)
+    "emitDeclarationOnly": true, // Ne génère que des déclarations, pas de fichiers .js
+    "outDir": "./dist", // Où placer les fichiers générés
+    "moduleResolution": "Node", // Résolution des modules comme dans Node
+    "module": "ESNext", // Module ESNext pour la compatibilité
+    "target": "ESNext", // Génération de code JavaScript moderne
+    "jsx": "react-jsx", // Support JSX pour React
+    "skipLibCheck": true, // Ignorer les vérifications des types dans les bibliothèques externes
+    "strict": true // Activer les règles strictes
+  },
+  "include": ["src"], // Inclut le dossier source
+  "exclude": ["node_modules", "dist", "src/main.tsx", "src/data"] // Exclut node_modules et dist
+}

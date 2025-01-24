@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./table.scss";
 import "../../utils/sorting";
 import { ascending, descending, searchInDataTable } from "../../utils/sorting";
+import Pagination from "../Pagination/Pagination";
 
 type DataType = {
   tableData: {
@@ -24,6 +25,7 @@ export default function Table({ tableData, entriesValue, searchBarValue }: DataT
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(Math.ceil(employeesTable.length / entriesValue));
 
+  //when a search is started
   useEffect(() => {
     const newTableToUse =
       searchBarValue.length > 0 ? searchInDataTable(employeesTable, searchBarValue) : employeesTable;
@@ -36,6 +38,7 @@ export default function Table({ tableData, entriesValue, searchBarValue }: DataT
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchBarValue]);
 
+  //when the number of showed entries change or a search is started or cleared
   useEffect(() => {
     const newTotalPages = Math.ceil(tableToUse.length / entriesValue);
     if (newTotalPages !== totalPages) {
@@ -77,26 +80,15 @@ export default function Table({ tableData, entriesValue, searchBarValue }: DataT
     }
   };
 
-  const paginationButtons = () => {
-    const buttons = [];
-    if (totalPages <= 6) {
-      for (let i = 1; i <= totalPages; i++) {
-        buttons.push(i);
-      }
-    } else {
-      buttons.push(1, 2, "...", totalPages - 1, totalPages);
-    }
-    return buttons;
-  };
-
   return (
     <>
       <table className="dataTable">
         <thead>
+          {/* <tr> */}
           <tr className="dataTable_titles">
             {Object.keys(employeesTable[0]).map((item, index) => (
               <th key={index}>
-                <span>
+                <span className="dataTable_titles_title">
                   <div className="arrow" onClick={(e) => handleClickedArrow(e, `${item}`)}>
                     <span className={`up ${selected[item] === "up" && "arrow-selected"}`}>▲</span>
                   </div>
@@ -128,53 +120,14 @@ export default function Table({ tableData, entriesValue, searchBarValue }: DataT
         </tbody>
       </table>
 
-      <div className="pagination">
-        <div className="pagination_text">
-          Showing {(currentPage - 1) * entriesValue + 1} to{" "}
-          {(currentPage - 1) * entriesValue + employeeDisplayed(tableToUse).length} of {tableToUse.length} entries{" "}
-        </div>
-        <div className="pagination_button">
-          <button key="previousButton" onClick={() => setCurrentPage(currentPage === 1 ? 1 : currentPage - 1)}>
-            <span className="controlButton_arrow">{`<`}</span> <span className="controlButton_text">Previous</span>
-          </button>
-
-          {paginationButtons().map((page, index) => {
-            if (page === "...") {
-              return (
-                <select
-                  value={currentPage}
-                  key={index}
-                  onChange={(e) => setCurrentPage(parseInt(e.target.value))}
-                  className={`paginationSelect ${currentPage > 2 && currentPage < totalPages - 1 ? "active" : ""}`}
-                >
-                  {Array.from({ length: totalPages }, (_, idx) => (
-                    <option key={idx + 1} value={idx + 1}>
-                      Page {idx + 1}
-                    </option>
-                  ))}
-                </select>
-              );
-            } else {
-              return (
-                <button
-                  key={index}
-                  onClick={() => setCurrentPage(parseInt(`${page}`))}
-                  className={`paginationNumber ${currentPage === page ? "active" : ""}`}
-                >
-                  {page}
-                </button>
-              );
-            }
-          })}
-
-          <button
-            key="nextButton"
-            onClick={() => setCurrentPage(currentPage === totalPages ? totalPages : currentPage + 1)}
-          >
-            <span className="controlButton_text">Next</span> <span className="controlButton_arrow"> {`>`}</span>
-          </button>
-        </div>
-      </div>
+      <Pagination
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        entriesValue={entriesValue}
+        tableToUse={tableToUse}
+        totalPages={totalPages}
+        employeeDisplayed={employeeDisplayed}
+      />
     </>
   );
 }

@@ -1,5 +1,6 @@
-import DataTable from "./DataTable";
+import DataTable from "./DataTable"; // Import du composant principal
+import type { DataTableType } from "./DataTable"; // Import des types liés au composant
 
-// Si nécessaire, exportez aussi des utilitaires ou d'autres composants
-export { DataTable };
-export default DataTable;
+export { DataTable }; // Export nommé pour le composant
+export default DataTable; // Export par défaut pour le composant
+export type { DataTableType }; // Export nommé pour les types
