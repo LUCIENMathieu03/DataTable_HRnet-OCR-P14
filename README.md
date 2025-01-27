@@ -19,7 +19,7 @@
 
 ```bash
 git clone https://github.com/LUCIENMathieu03/DataTable_HRnet-OCR-P14.git
-cd HRnet
+cd DataTable_HRnet
 ```
 
 ### Install dependencies:
@@ -90,7 +90,7 @@ export default App;
 ## **Features**
 
 - Automatically generates table columns based on object keys.
-- Displays data in rows for easy visualization.
+- Displays data in rows.
 - No need to manually specify columns or rows.
 
 ---
