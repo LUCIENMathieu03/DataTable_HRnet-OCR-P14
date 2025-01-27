@@ -1,7 +1,7 @@
 {
   "name": "datatable-ml03",
   "description": "A React component to create data tables ",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "type": "module",
   "keywords": [
     "react",

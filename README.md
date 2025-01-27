@@ -13,34 +13,34 @@
 
 ---
 
-## 📖 Comment lancer le projet ?
+## 📖 How to start the project?
 
-### Cloner le dépôt :
+### Clone the repository:
 
 ```bash
-git clone https://github.com/LUCIENMathieu03/DataTable_HRnet-OCR-P14.git
+git clone <REPOSITORY_URL>
 cd HRnet
 ```
 
-### Installer les dépendances :
+### Install dependencies:
 
 ```bash
 npm install
 ```
 
-### Lancer l'application en mode développement :
+### Start the application in development mode:
 
 ```bash
 npm run dev
 ```
 
-### Construire le projet pour la production :
+### Build the project for production:
 
 ```bash
 npm run build
 ```
 
-### Prévisualiser la version de production :
+### Preview the production build:
 
 ```bash
 npm run preview
