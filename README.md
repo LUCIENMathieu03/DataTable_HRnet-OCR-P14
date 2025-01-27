@@ -6,6 +6,48 @@
 
 ---
 
+## Prerequisites
+
+- **Node.js**: v18.16
+- **Recommended Editor**: Visual Studio Code (VSCode)
+
+---
+
+## 📖 Comment lancer le projet ?
+
+### Cloner le dépôt :
+
+```bash
+git clone https://github.com/LUCIENMathieu03/DataTable_HRnet-OCR-P14.git
+cd HRnet
+```
+
+### Installer les dépendances :
+
+```bash
+npm install
+```
+
+### Lancer l'application en mode développement :
+
+```bash
+npm run dev
+```
+
+### Construire le projet pour la production :
+
+```bash
+npm run build
+```
+
+### Prévisualiser la version de production :
+
+```bash
+npm run preview
+```
+
+---
+
 ## Usage
 
 Import the component and use it in your React application:
@@ -85,6 +127,7 @@ export default App;
   }
 ]
 ```
+
 ---
 
 ## **License**
