@@ -10,43 +10,20 @@
 
 - **Node.js**: >= 18.x
 - **Recommended Editor**: Visual Studio Code (VSCode)
-- **Frameworks**: React >= 18.x, Vite
-- **Languages**: JavaScript, TypeScript
+- **Frameworks**: React >= 18.x
+- **Languages**: JavaScript (required), TypeScript (optional)
 
 ---
 
-## 📖 How to start the project?
+## Installation
 
-### Clone the repository:
-
-```bash
-git clone https://github.com/LUCIENMathieu03/DataTable_HRnet-OCR-P14.git
-cd DataTable_HRnet
-```
-
-### Install dependencies:
+To use the `DataTable` component in your React project, install it using the following command:
 
 ```bash
-npm install
+npm i datatable-ml03
 ```
 
-### Start the application in development mode:
-
-```bash
-npm run dev
-```
-
-### Build the project for production:
-
-```bash
-npm run build
-```
-
-### Preview the production build:
-
-```bash
-npm run preview
-```
+Ensure that your project meets the prerequisites listed above. Once installed, you can import and use the component as shown in the [Usage](#usage) section.
 
 ---
 
@@ -128,6 +105,41 @@ export default App;
     "zipCode": "30303"
   }
 ]
+```
+
+---
+
+## 📖 How to start the project for development?
+
+### Clone the repository:
+
+```bash
+git clone https://github.com/LUCIENMathieu03/DataTable_HRnet-OCR-P14.git
+cd DataTable_HRnet
+```
+
+### Install dependencies:
+
+```bash
+npm install
+```
+
+### Start the application in development mode:
+
+```bash
+npm run dev
+```
+
+### Build the project for production:
+
+```bash
+npm run build
+```
+
+### Preview the production build:
+
+```bash
+npm run preview
 ```
 
 ---
