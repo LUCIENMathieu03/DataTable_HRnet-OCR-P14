@@ -8,8 +8,10 @@
 
 ## Prerequisites
 
-- **Node.js**: v18.16
+- **Node.js**: >= 18.x
 - **Recommended Editor**: Visual Studio Code (VSCode)
+- **Frameworks**: React >= 18.x, Vite
+- **Languages**: JavaScript, TypeScript
 
 ---
 
