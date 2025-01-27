@@ -18,7 +18,7 @@
 ### Clone the repository:
 
 ```bash
-git clone <REPOSITORY_URL>
+git clone https://github.com/LUCIENMathieu03/DataTable_HRnet-OCR-P14.git
 cd HRnet
 ```
 
